@@ -54,8 +54,8 @@ TEST_PATH := $(or $(TEST_PATH),spec/)
 test:
 	docker-compose run -e DATABASE_URL=postgresql://postgres@db/quote_editor_test -e RAILS_ENV=test -e SPEC_DISABLE_FACTORY_LINT=$(SPEC_DISABLE_FACTORY_LINT) -e SPEC_DISABLE_WEBPACK_COMPILE=$(SPEC_DISABLE_WEBPACK_COMPILE) --rm quote rspec -f d $(TEST_PATH)
 
-test-db-prepare:
-	docker-compose run -e DATABASE_URL=postgresql://postgres@db/quote_editor_test -e RAILS_ENV=test --rm quote rails db:test:prepare
+test-prepare:
+	docker-compose run -e DATABASE_URL=postgresql://postgres@db/quote_editor_test -e RAILS_ENV=test --rm quote ash -c "bundle install; rails db:test:prepare"
 
 test-db-drop:
 	docker-compose run -e DATABASE_URL=postgresql://postgres@db/quote_editor_test -e RAILS_ENV=test --rm quote rails db:drop

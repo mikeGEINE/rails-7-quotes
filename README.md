@@ -1,24 +1,5 @@
-# README
+# Rails 7 Quote Editor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple project to explore Rails 7 and turbo-rails, completed according to [this tutorial](https://www.hotrails.dev/turbo-rails).
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In addition to the app of the tutorial the project utilizes Docker.
