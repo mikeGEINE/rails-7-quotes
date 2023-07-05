@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class QuotesTest < ApplicationSystemTestCase
   setup do
-    @quote = quotes(:first)
+    @quote = Quote.ordered.first
   end
 
   test 'Create a new quote' do
@@ -12,10 +12,11 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Quotes'
 
     click_on 'New quote'
-    assert_selector 'h1', text: 'New quote'
-
     fill_in 'Name', with: 'Capybara quote'
+
+    assert_selector 'h1', text: 'Quotes'
     click_on 'Create quote'
+
     assert_selector 'h1', text: 'Quotes'
     assert_text 'Capybara quote'
   end
@@ -32,9 +33,9 @@ class QuotesTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Quotes'
 
     click_on 'Edit', match: :first
-    assert_selector 'h1', text: 'Edit quote'
-
     fill_in 'Name', with: 'Updated quote'
+
+    assert_selector 'h1', text: 'Quotes'
     click_on 'Update quote'
 
     assert_selector 'h1', text: 'Quotes'
